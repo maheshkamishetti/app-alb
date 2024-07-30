@@ -31,7 +31,7 @@ resource "aws_lb_target_group" "app_tg" {
 }
 
 
-resource "aws_lb_listener" "https" {
+resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.app_alb.arn
   port              = "80"
   protocol          = "HTTP"
@@ -49,9 +49,3 @@ resource "aws_lb_target_group_attachment" "app_instance" {
   port             = 80
 }
 
-
-# resource "aws_lb_target_group_attachment" "app_instance" {
-#   target_group_arn = aws_lb_target_group.app_tg.arn
-#   target_id        = module.app.instance_id
-#   port             = 80
-# }
